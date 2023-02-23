@@ -5,20 +5,20 @@
 class GitSemver < Formula
   desc "Automatically derive semantic versions from Git tags."
   homepage "https://github.com/mdomke/git-semver"
-  version "6.5.0"
+  version "6.6.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.5.0/git-semver_6.5.0_Darwin_x86_64.tar.gz"
-      sha256 "822e2813733dbc3f3dcb8be4b653af657e0093a4eb2093c849a9759e45f87f22"
+      url "https://github.com/mdomke/git-semver/releases/download/v6.6.1/git-semver_6.6.1_Darwin_x86_64.tar.gz"
+      sha256 "9acda2abb4b01eb6fa299ed90708b532d82d0006b57932db21e7b0ecc42612db"
 
       def install
         bin.install "git-semver"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.5.0/git-semver_6.5.0_Darwin_arm64.tar.gz"
-      sha256 "1bda5187aff4cc9063d21787c4134b86b57b2321bba0fc58c7473bb008d1ca21"
+      url "https://github.com/mdomke/git-semver/releases/download/v6.6.1/git-semver_6.6.1_Darwin_arm64.tar.gz"
+      sha256 "f0b4d861fcb01f6ef98914ac9658cb6d7564ab4971be00796313887529a9e276"
 
       def install
         bin.install "git-semver"
@@ -27,17 +27,17 @@ class GitSemver < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.5.0/git-semver_6.5.0_Linux_x86_64.tar.gz"
-      sha256 "6145895f189184323a6d657a70d0b01a525bf4bec020a28b9e93ff13328af63e"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/mdomke/git-semver/releases/download/v6.6.1/git-semver_6.6.1_Linux_arm64.tar.gz"
+      sha256 "cb196b6e60cb43cae60d937f64eda4495a678ed926eae01b0ddac9034150eb3a"
 
       def install
         bin.install "git-semver"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.5.0/git-semver_6.5.0_Linux_arm64.tar.gz"
-      sha256 "73b1d8a00dff9a8eaf3bdf8dcc645eb855a5ff76daffa28411923109ef50c984"
+    if Hardware::CPU.intel?
+      url "https://github.com/mdomke/git-semver/releases/download/v6.6.1/git-semver_6.6.1_Linux_x86_64.tar.gz"
+      sha256 "dfca49e3b72b3720f3c66379dbc11e3298c2269d8a3ce4ad16ec7bdfbe6f3e7f"
 
       def install
         bin.install "git-semver"
