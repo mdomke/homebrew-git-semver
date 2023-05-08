@@ -5,20 +5,20 @@
 class GitSemver < Formula
   desc "Automatically derive semantic versions from Git tags."
   homepage "https://github.com/mdomke/git-semver"
-  version "6.7.0"
+  version "6.7.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.7.0/git-semver_6.7.0_Darwin_arm64.tar.gz"
-      sha256 "6cd64f001e67a0fea49d91c6a7de5650f4d9e51c677bd56e84dab2abbfda23b9"
+    if Hardware::CPU.intel?
+      url "https://github.com/mdomke/git-semver/releases/download/v6.7.1/git-semver_6.7.1_Darwin_x86_64.tar.gz"
+      sha256 "e078a583c03f1d15157cf65fcda066edf42edd506d2d08531ecc1dd18dee1bd4"
 
       def install
         bin.install "git-semver"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.7.0/git-semver_6.7.0_Darwin_x86_64.tar.gz"
-      sha256 "3bca868d2f1f78a7b9b27021703c81785df5940ac2df53065ccddcdf48a08f58"
+    if Hardware::CPU.arm?
+      url "https://github.com/mdomke/git-semver/releases/download/v6.7.1/git-semver_6.7.1_Darwin_arm64.tar.gz"
+      sha256 "b60deec012fa1595e6d3141b9acc95e9629e874fe8c0ee770ceddf094a32c369"
 
       def install
         bin.install "git-semver"
@@ -28,16 +28,16 @@ class GitSemver < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.7.0/git-semver_6.7.0_Linux_arm64.tar.gz"
-      sha256 "802d3a4a1d988f944fb0507e7fc629980d1f1a38c01092b39a83a6cc3273b9a2"
+      url "https://github.com/mdomke/git-semver/releases/download/v6.7.1/git-semver_6.7.1_Linux_arm64.tar.gz"
+      sha256 "69c531b2428340027ab08448b7d00b87457c5efac1c80d8d110e2897d91dc311"
 
       def install
         bin.install "git-semver"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.7.0/git-semver_6.7.0_Linux_x86_64.tar.gz"
-      sha256 "0f2f82fbfdf890bf4f61247b81e12cea3f154aa2db5a8ae4eb27d337906e14e7"
+      url "https://github.com/mdomke/git-semver/releases/download/v6.7.1/git-semver_6.7.1_Linux_x86_64.tar.gz"
+      sha256 "1bc8a3b52bcdf431c3e41456373d39b9c9c4aad885ba6cc92ed39045e3de70e3"
 
       def install
         bin.install "git-semver"
