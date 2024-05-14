@@ -5,20 +5,20 @@
 class GitSemver < Formula
   desc "Automatically derive semantic versions from Git tags."
   homepage "https://github.com/mdomke/git-semver"
-  version "6.8.1"
+  version "6.9.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.8.1/git-semver_6.8.1_darwin_arm64.tar.gz"
-      sha256 "fe99745112c8707263e4ee1aabecd09730dac33baaea3048b62011d06ae375b1"
+    on_intel do
+      url "https://github.com/mdomke/git-semver/releases/download/v6.9.0/git-semver_6.9.0_darwin_amd64.tar.gz"
+      sha256 "571983c4d76eace02f1c9575d4ca830010220050450dc89e6ab35363388a4334"
 
       def install
         bin.install "git-semver"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.8.1/git-semver_6.8.1_darwin_amd64.tar.gz"
-      sha256 "652967a5a582ce153eda5c511030c202f7b5891c1be27fff462eb3351768ded6"
+    on_arm do
+      url "https://github.com/mdomke/git-semver/releases/download/v6.9.0/git-semver_6.9.0_darwin_arm64.tar.gz"
+      sha256 "1174e00a9f3933fe36b5945f2907f61eaa63241285890df3712d053407d0982f"
 
       def install
         bin.install "git-semver"
@@ -27,20 +27,24 @@ class GitSemver < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.8.1/git-semver_6.8.1_linux_amd64.tar.gz"
-      sha256 "14647278bc219ae8415543fb6e08d36540d69c0f653601b9ca8b16ba9b40d29a"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/mdomke/git-semver/releases/download/v6.9.0/git-semver_6.9.0_linux_amd64.tar.gz"
+        sha256 "78a54564490535f56a5816c876f078bb34d2d2ad724712be13e3b9ec28a263fa"
 
-      def install
-        bin.install "git-semver"
+        def install
+          bin.install "git-semver"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mdomke/git-semver/releases/download/v6.8.1/git-semver_6.8.1_linux_arm64.tar.gz"
-      sha256 "4607a0af332f0dd0f09129ff98ce063e15d92774212437d8cf48fd8ced3e5577"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/mdomke/git-semver/releases/download/v6.9.0/git-semver_6.9.0_linux_arm64.tar.gz"
+        sha256 "d5c231ac36a813155a9db1f5793c436e7f67bbc829cacc4ede4335440a03fccf"
 
-      def install
-        bin.install "git-semver"
+        def install
+          bin.install "git-semver"
+        end
       end
     end
   end
